@@ -34,12 +34,14 @@ model Artist {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   songs     Song[]
+  name      String   @unique
 }
 
 model Playlist {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  name      String
   songs     Song[]
   user      User?    @relation(fields: [userId], references: [id])
   userId    Int?
